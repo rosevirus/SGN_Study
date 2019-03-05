@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/rosevirus/SGN#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
     "sanitize-html": "^1.20.0"
   }
 }
