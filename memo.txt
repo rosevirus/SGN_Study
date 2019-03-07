@@ -1,0 +1,23 @@
+
+var cookie = require('cookie');
+
+app.use(function authIsOwner(request, response) {
+  var isOwner = false;
+  var cookies = {};
+  if (request.headers.cookie !== undefined) {
+    cookies = cookie.parse(request.headers.cookie);
+  }
+  if (cookies.email === 'sgn@gmail.com' && cookies.password === '1126611') {
+    isOwner = true;
+  }
+  return isOwner;
+});
+
+,
+  authStatusUI: function (request, response) {
+    var authStatusUI = '<a href="/login">login</a>'
+    if (authIsOwner(request, response)) {
+      authStatusUI = '<a href="/logout_process">logout</a>'
+    }
+    return authStatusUI;
+  }
