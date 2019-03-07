@@ -8,6 +8,7 @@ app.use(helmet());
 
 var indexRouter = require('./routes/index');
 var topicRouter = require('./routes/topic');
+var loginRouter = require('./routes/login');
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({
@@ -22,6 +23,7 @@ app.get('*', function (request, response, next) {
 });
 
 app.use('/', indexRouter);
+app.use('/', loginRouter);
 app.use('/topic', topicRouter);
 
 app.use(function (req, res, next) {
